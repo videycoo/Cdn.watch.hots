@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inspiring Quotes | Andrei Nemeti</title>
+  
+  <meta property="og:url" content="https://quix.gay/hyso.mp4" />
+  <meta property="og:type" content="website" />
+  
+  <meta property="og:title" content="Inspiring Quotes | Discover a New Perspective" />
+  
+  <meta property="og:description" content="Get daily inspiration with our random quote generator. Share wisdom with your friends!" />
+  
+  <meta property="og:image" content="https://api.pirsch.io/theme/files/42124_favicon.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="description" content="Random Quotes Generator by Andrei Nemeti" />
+  <meta name="author" content="Andrei Nemeti" />
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?ver1" />
+</head>
+
+<body>
+  <main id="app" class="quote-app">
+    <header class="quote-app__header">
+      <h1 class="quote-app__title">Inspiring Quotes</h1>
+      <p class="quote-app__subtitle">Discover a new perspective daily</p>
+    </header>
+
+    <section class="quote-card">
+      <div class="quote-card__image">
+        <div class="quote-card__image-skeleton" v-if="isLoading"></div>
+        <transition name="fade">
+          <div v-show="!isLoading" class="quote-card__image-bg" :style="{ backgroundImage: 'url(' + currentImage + ')' }"></div>
+        </transition>
+      </div>
+
+      <div class="quote-card__content">
+        <blockquote class="quote-card__text">
+          <span v-text="current.quote"></span>
+        </blockquote>
+        <div class="quote-card__author">— <span v-text="current.attrib"></span></div>
+        
+        <div class="quote-card__actions">
+          <button class="btn btn--primary" @click="nextQuote" :disabled="isLoading">New Quote</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script src="js/script.js?ver1"></script>
+</body>
+</html>
