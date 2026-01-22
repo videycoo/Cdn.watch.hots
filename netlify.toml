@@ -1,0 +1,2 @@
+[images]
+  remote_images = ["https://scontent-sjc3-1.oculuscdn.com/.*", "https://scontent-.*.fbcdn.net/.*"]
